@@ -2,4 +2,11 @@
     <string name="app_name">Tip Calculator</string>
     <string name="bill_amount_text">Bill Amount</string>
     <string name="bill_amount_input">Enter Bill Amount</string>
+    <string name="tip_amount_text">Tip Amount:</string>
+    <string-array name="choices_list">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
 </resources>
