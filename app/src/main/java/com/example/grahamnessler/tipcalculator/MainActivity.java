@@ -2,15 +2,20 @@ package com.example.grahamnessler.tipcalculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
-    int tipPercent;
+    double tipPercent;
     private String[] choices = {"10", "15", "20", "25"};
+    double billAmount;
+    double totalTip;
 
 
     @Override
@@ -32,10 +37,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         String choice = choices[pos];
-        tipPercent = Integer.parseInt(choice);
+        tipPercent = Integer.parseInt(choice) * 0.01;
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        
+
+    }
+
+    public void calculateTip (View view) {
+        EditText amt = (EditText) findViewById(R.id.billAmountInput);
+        TextView total = (TextView) findViewById(R.id.tipTotalOutput);
+        String bill = amt.getText().toString();
+        billAmount = Double.parseDouble(bill);
+        totalTip = tipPercent * billAmount;
+        String tipString = Double.toString(totalTip);
+        total.setText(tipString);
     }
 }
