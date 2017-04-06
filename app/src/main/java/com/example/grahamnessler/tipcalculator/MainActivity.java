@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private Spinner spinner;
+    Spinner spinner;
     int tipPercent;
     private String[] choices = {"10", "15", "20", "25"};
 
@@ -36,6 +36,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
+        
     }
 }
