@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
     double tipPercent;
@@ -36,10 +38,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (!bill.isEmpty()) {
             billAmount = Double.parseDouble(bill);
             totalTip = tipPercent * billAmount;
-            String tipString = Double.toString(totalTip);
+            String tipString = String.format(Locale.US, "%.2f", totalTip);
             total.setText(tipString);
             totalBill = billAmount + totalTip;
-            String billString = Double.toString(totalBill);
+            String billString = String.format(Locale.US, "%.2f", totalBill);
             billTotal.setText(billString);
             amt.setEnabled(false);
             amt.setEnabled(true);
