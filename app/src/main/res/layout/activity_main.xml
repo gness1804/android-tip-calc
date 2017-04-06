@@ -15,4 +15,16 @@
         android:text="@string/bill_amount_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/billAmountInput"
+        android:layout_width="178dp"
+        android:layout_height="53dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/bill_amount_input"
+        android:inputType="numberDecimal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
