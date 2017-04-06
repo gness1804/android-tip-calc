@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             totalBill = billAmount + totalTip;
             String billString = Double.toString(totalBill);
             billTotal.setText(billString);
+            amt.setEnabled(false);
+            amt.setEnabled(true);
         } else {
             throwEmptyFieldError();
         }
