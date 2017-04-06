@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private String[] choices = {"10", "15", "20", "25"};
     double billAmount;
     double totalTip;
+    double totalBill;
 
 
     @Override
@@ -47,10 +48,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void calculateTip (View view) {
         EditText amt = (EditText) findViewById(R.id.billAmountInput);
         TextView total = (TextView) findViewById(R.id.tipTotalOutput);
+        TextView billTotal = (TextView) findViewById(R.id.totalBillOutput);
         String bill = amt.getText().toString();
         billAmount = Double.parseDouble(bill);
         totalTip = tipPercent * billAmount;
         String tipString = Double.toString(totalTip);
         total.setText(tipString);
+        totalBill = billAmount + totalTip;
+        String billString = Double.toString(totalBill);
+        billTotal.setText(billString);
     }
 }
