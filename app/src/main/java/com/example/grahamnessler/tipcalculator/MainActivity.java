@@ -1,5 +1,6 @@
 package com.example.grahamnessler.tipcalculator;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner spinner;
@@ -45,17 +47,30 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    void throwEmptyFieldError () {
+        Context context = getApplicationContext();
+        CharSequence text = "Oops! You must fill in all fields!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast.makeText(context, text, duration).show();
+    }
+
     public void calculateTip (View view) {
         EditText amt = (EditText) findViewById(R.id.billAmountInput);
         TextView total = (TextView) findViewById(R.id.tipTotalOutput);
         TextView billTotal = (TextView) findViewById(R.id.totalBillOutput);
         String bill = amt.getText().toString();
-        billAmount = Double.parseDouble(bill);
-        totalTip = tipPercent * billAmount;
-        String tipString = Double.toString(totalTip);
-        total.setText(tipString);
-        totalBill = billAmount + totalTip;
-        String billString = Double.toString(totalBill);
-        billTotal.setText(billString);
+        if (!bill.isEmpty()) {
+            billAmount = Double.parseDouble(bill);
+            totalTip = tipPercent * billAmount;
+            String tipString = Double.toString(totalTip);
+            total.setText(tipString);
+            totalBill = billAmount + totalTip;
+            String billString = Double.toString(totalBill);
+            billTotal.setText(billString);
+        } else {
+            throwEmptyFieldError();
+        }
+
     }
 }
