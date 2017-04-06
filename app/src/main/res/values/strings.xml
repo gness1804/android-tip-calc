@@ -5,6 +5,7 @@
     <string name="tip_amount_text">Tip Amount:</string>
     <string name="tip_total_text">Tip Total:</string>
     <string name="calculate">Calculate!</string>
+    <string name="total_to_pay">Total to Pay:</string>
     <string-array name="choices_list">
         <item>10</item>
         <item>15</item>
