@@ -28,33 +28,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         createSpinner();
     }
 
-    public void createSpinner () {
-        spinner = (Spinner) findViewById(R.id.tipPercentDropdown);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.choices_list, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
-
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        String choice = choices[pos];
-        tipPercent = Integer.parseInt(choice) * 0.01;
-    }
-
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    void throwEmptyFieldError () {
-        Context context = getApplicationContext();
-        CharSequence text = "Oops! You must fill in all fields!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast.makeText(context, text, duration).show();
-    }
-
     public void calculateTip (View view) {
         EditText amt = (EditText) findViewById(R.id.billAmountInput);
         TextView total = (TextView) findViewById(R.id.tipTotalOutput);
@@ -75,4 +48,41 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
     }
+
+    public void createSpinner () {
+        spinner = (Spinner) findViewById(R.id.tipPercentDropdown);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.choices_list, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        String choice = choices[pos];
+        tipPercent = Integer.parseInt(choice) * 0.01;
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void resetAllFields (View view) {
+        EditText amt = (EditText) findViewById(R.id.billAmountInput);
+        TextView total = (TextView) findViewById(R.id.tipTotalOutput);
+        TextView billTotal = (TextView) findViewById(R.id.totalBillOutput);
+        amt.setText("");
+        total.setText("");
+        billTotal.setText("");
+    }
+
+    void throwEmptyFieldError () {
+        Context context = getApplicationContext();
+        CharSequence text = "Oops! You must fill in all fields!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast.makeText(context, text, duration).show();
+    }
+
 }
