@@ -7,3 +7,4 @@ This is a simple tip calculator built for my own purposes. It contains the basic
 *Sources I found useful:*
 
 [SO post on how to round a double in Java](https://stackoverflow.com/questions/8819842/best-way-to-format-a-double-value-to-2-decimal-places)
+[SO post on adding a new app icon](https://stackoverflow.com/questions/26615889/how-to-change-the-launcher-logo-of-an-app-in-android-studio)
